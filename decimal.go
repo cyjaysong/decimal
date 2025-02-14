@@ -613,6 +613,11 @@ func (d Decimal) Mul(d2 Decimal) Decimal {
 	}
 }
 
+// MulRound returns d * d2. rounds to a given precision
+func (d Decimal) MulRound(d2 Decimal, precision int32) Decimal {
+	return d.Mul(d2).Round(precision)
+}
+
 // Shift shifts the decimal in base 10.
 // It shifts left when shift is positive and right if shift is negative.
 // In simpler terms, the given value for shift is added to the exponent
