@@ -143,9 +143,9 @@ func New(value int64, exp int32) Decimal {
 //
 //	NewFromInt(123).String() // output: "123"
 //	NewFromInt(-10).String() // output: "-10"
-func NewFromInt(value int64) Decimal {
+func NewFromInt[T int64 | int32 | int](value T) Decimal {
 	return Decimal{
-		value: big.NewInt(value),
+		value: big.NewInt(int64(value)),
 		exp:   0,
 	}
 }
